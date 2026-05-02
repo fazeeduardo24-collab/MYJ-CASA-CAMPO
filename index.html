@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&J CASA CAMPO | Tu Refugio Privado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-campo: #2d5a27;
+            --dorado: #c5a059;
+            --blanco: #ffffff;
+            --gris-claro: #f4f4f4;
+            --gris-oscuro: #333;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animar { animation: fadeInUp 0.8s ease-out forwards; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--gris-oscuro);
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('Entrada MYJ.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('Entrada MYJ.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .btn-reserva {
+            background-color: var(--verde-campo);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.4s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn-reserva:hover {
+            background-color: #23461f;
+        }
+
+        .bienvenidos {
+    padding: 70px 10% 30px;
+    text-align: center;
+}
+
+.bienvenidos-contenido {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bienvenidos h2 {
+    margin-bottom: 25px;
+    color: var(--verde-campo);
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.bienvenidos img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+        section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--verde-campo);
+            margin-bottom: 40px;
+        }
+
+        .menu-botones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn-interactivo {
+            background-color: var(--blanco);
+            border: 2px solid var(--verde-campo);
+            color: var(--verde-campo);
+            padding: 12px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-interactivo:hover,
+        .btn-interactivo.active {
+            background-color: var(--verde-campo);
+            color: white;
+            box-shadow: 0 5px 15px rgba(45,90,39,0.3);
+        }
+
+        .detalle-contenido {
+        display: none;
+        opacity: 0;
+        transform: translateY(15px);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .detalle-contenido.mostrar {
+    display: block;
+    animation: fadeInDetalle 0.45s ease forwards;
+}
+
+.detalle-contenido.ocultar {
+    display: block;
+    animation: fadeOutDetalle 0.35s ease forwards;
+}
+
+@keyframes fadeInDetalle {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDetalle {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
+
+        .fotos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .fotos-grid img {
+            max-width: 100%;
+            height: auto;
+            max-height: 600px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .fotos-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .wsp-flotante {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 120px;
+            height: 120px;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .wsp-flotante img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contenedor-conocenos {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #000;
+        }
+
+        .slider-videos {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+
+        .video-slide {
+            min-width: 100%;
+            height: 600px;
+        }
+
+        .video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .flecha {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(45, 90, 39, 0.85);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .flecha:hover {
+            background: var(--verde-campo);
+        }
+
+        .flecha-izq { left: 20px; }
+        .flecha-der { right: 20px; }
+
+        .mapa-contenedor {
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: #fff;
+        }
+
+        .banner-contacto {
+            background-color: #e0e0e0;
+            color: var(--gris-oscuro);
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 2px solid var(--verde-campo);
+        }
+
+        .banner-contacto h2 {
+            color: var(--verde-campo);
+            margin-bottom: 20px;
+        }
+
+        .info-contacto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-contacto a {
+            color: var(--verde-campo);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-contacto a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--gris-oscuro);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            .wsp-flotante { width: 80px; height: 80px; }
+            .video-slide { height: 350px; }
+            .flecha { width: 45px; height: 45px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/51979081390" class="wsp-flotante" target="_blank" rel="noopener noreferrer">
+        <img src="wsp.png" alt="WhatsApp">
+    </a>
+
+    <header>
+        <h1>M&J CASA CAMPO</h1>
+        <p>Tu refugio privado bajo el sol de Palambla</p>
+        <a href="#contacto" class="btn-reserva">Reserva Ahora</a>
+    </header>
+
+    <section class="bienvenidos animar">
+    <div class="bienvenidos-contenido">
+        <h2>BIENVENID@S</h2>
+        <img src="F1.PNG" alt="Bienvenidos a M&J Casa Campo">
+    </div>
+</section>
+
+    <section id="servicios" class="animar">
+        <h2>Nuestros Servicios</h2>
+        <div class="menu-botones">
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'parrilla', this)">🥩 Parrilla</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'deportiva', this)">⚽ Área Deportiva</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'recreacion', this)">🎡 Área de Recreación</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'verdes', this)">🌳 Áreas Verdes</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'descanso', this)">🛌 Área de Descanso</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'wifi', this)">🌐 Wifi y TV</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'estacionamiento', this)">🚗 Estacionamiento</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'privacidad', this)">🔒 Privacidad</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'camping', this)">⛺ Camping</button>
+            <button class="btn-interactivo" onclick="mostrarInfo('servicios', 'comidas', this)">🍜 Comidas</button>
+        </div>
+
+        <div class="contenedor-dinamico" id="cont-servicios">
+            <div id="parrilla" class="detalle-contenido">
+                <h3>Zona de Parrilla</h3>
+                <p>Equipamiento completo para tus mejores asados.</p>
+                <div class="fotos-grid">
+                    <img src="AP1.jpg" alt="Parrilla 1">
+                    <img src="AP2.jpg" alt="Parrilla 2">
+                    <img src="AP3.jpg" alt="Parrilla 3">
+                </div>
+            </div>
+
+            <div id="deportiva" class="detalle-contenido">
+                <h3>Área Deportiva</h3>
+                <p>Espacio listo para la acción en equipo.</p>
+                <div class="fotos-grid">
+                    <img src="P1.JPEG" alt="Área deportiva 1">
+                    <img src="P2.JPEG" alt="Área deportiva 2">
+                </div>
+            </div>
+
+            <div id="recreacion" class="detalle-contenido">
+                <h3>Área de Recreación</h3>
+                <p>Diversión garantizada para niños y adultos.</p>
+                <div class="fotos-grid">
+                    <img src="AR1.jpg" alt="Área de recreación 1">
+                    <img src="AR2.jpg" alt="Área de recreación 2">
+                </div>
+            </div>
+
+            <div id="verdes" class="detalle-contenido">
+                <h3>Áreas Verdes</h3>
+                <p>Naturaleza pura a tu alrededor.</p>
+                <div class="fotos-grid">
+                    <img src="AV1.JPEG" alt="Área verde 1">
+                    <img src="AV2.JPEG" alt="Área verde 2">
+                    <img src="AV3.JPEG" alt="Área verde 3">
+                </div>
+            </div>
+
+            <div id="descanso" class="detalle-contenido">
+                <h3>Área de Descanso</h3>
+                <p>Relajación total bajo la sombra.</p>
+                <div class="fotos-grid">
+                    <img src="R1.jpg" alt="Descanso 1">
+                    <img src="R2.jpg" alt="Descanso 2">
+                    <img src="R3.jpg" alt="Descanso 3">
+                    <img src="R4.jpg" alt="Descanso 4">
+                </div>
+            </div>
+
+            <div id="wifi" class="detalle-contenido">
+                <h3>Wifi y TV</h3>
+                <p>Conectividad total en medio del campo.</p>
+                <div class="fotos-grid">
+                    <img src="W1.png" alt="Wifi y TV 1">
+                    <img src="W2.jpeg" alt="Wifi y TV 2">
+                    <img src="W3.jpg" alt="Wifi y TV 3">
+                </div>
+            </div>
+
+            <div id="estacionamiento" class="detalle-contenido">
+                <h3>Estacionamiento</h3>
+                <p>Seguridad y espacio para tus vehículos.</p>
+                <div class="fotos-grid">
+                    <img src="E1.jpeg" alt="Estacionamiento 1">
+                    <img src="E2.jpeg" alt="Estacionamiento 2">
+                </div>
+            </div>
+
+            <div id="privacidad" class="detalle-contenido">
+                <h3>Privacidad</h3>
+                <p>Exclusividad absoluta durante tu estadía.</p>
+                <div class="fotos-grid">
+                    <img src="S1.jpeg" alt="Privacidad 1">
+                    <img src="S2.jpeg" alt="Privacidad 2">
+                    <img src="S3.jpeg" alt="Privacidad 3">
+                    <img src="S4.jpeg" alt="Privacidad 4">
+                </div>
+            </div>
+
+            <div id="camping" class="detalle-contenido">
+                <h3>Camping</h3>
+                <p>Zona libre para sus carpas para acampar.</p>
+                <div class="fotos-grid">
+                    <img src="C1.jpeg" alt="Camping 1">
+                    <img src="C2.png" alt="Camping 2">
+                </div>
+            </div>
+
+            <div id="comidas" class="detalle-contenido">
+    <h3>Comidas</h3>
+    <p>Consulta por opciones de comidas disponibles para tu estadía.</p>
+    <div class="fotos-grid">
+        <img src="CM1.jpg" alt="Comida 1">
+        <img src="CM2.jpg" alt="Comida 2">
+        <img src="CM3.jpg" alt="Comida 3">
+        <img src="CM4.jpg" alt="Comida 4">
+    </div>
+    </div>
+    </section>
+
+    <section id="habitaciones" class="animar">
+        <h2>Habitaciones</h2>
+
+        <div class="menu-botones">
+            <button class="btn-interactivo" onclick="mostrarPiso('piso1', this)">🏢 1er Piso</button>
+            <button class="btn-interactivo" onclick="mostrarPiso('piso2', this)">🏢 2do Piso</button>
+        </div>
+
+        <div id="menu-piso1" class="menu-botones" style="display:none;">
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('piso1-completo', this)">🏠 Reservar todo el 1er Piso</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h1', this)">Habitación 1</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h2', this)">Habitación 2</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h3', this)">Habitación 3</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h4', this)">Habitación 4</button>
+        </div>
+
+        <div id="menu-piso2" class="menu-botones" style="display:none;">
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h5', this)">Habitación 1</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h6', this)">Habitación 2</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h7', this)">Habitación 3</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h8', this)">Habitación 4</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h9', this)">Habitación 5</button>
+            <button class="btn-interactivo" onclick="mostrarDetalleHab('h10', this)">Habitación 6</button>
+        </div>
+
+        <div class="contenedor-dinamico" id="cont-habitaciones">
+
+            <div id="piso1-completo" class="detalle-contenido">
+                <h3>1er Piso Completo</h3>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Habitación 1 - 1er Piso</h4>
+                    <br>
+                    <div class="fotos-grid">
+                        <img src="PC1-1.jpeg" alt="Habitación 1 primer piso">
+                        <img src="PC1-1-1.jpeg" alt="Habitación 1 primer piso vista 2">
+                    </div>
+                </div>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Habitación 2 - 1er Piso</h4>
+                    <div class="fotos-grid">
+                        <img src="PC1-2.jpeg" alt="Habitación 2 primer piso">
+                        <img src="PC1-2-1.jpeg" alt="Habitación 2 primer piso vista 2">
+                    </div>
+                </div>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Habitación 3 - 1er Piso</h4>
+                    <div class="fotos-grid">
+                        <img src="PC1-3.jpeg" alt="Habitación 3 primer piso">
+                        <img src="PC1-3-1.jpeg" alt="Habitación 3 primer piso vista 2">
+                    </div>
+                </div>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Habitación 4 - 1er Piso</h4>
+                    <div class="fotos-grid">
+                        <img src="PC1-4.jpeg" alt="Habitación 4 primer piso">
+                        <img src="PC1-4-1.jpeg" alt="Habitación 4 primer piso vista 2">
+                    </div>
+                </div>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Baño General</h4>
+                    <div class="fotos-grid">
+                        <img src="BG.jpeg" alt="Baño general">
+                    </div>
+                </div>
+
+                <div class="bloque-habitacion"><br>
+                    <h4>Sala General</h4>
+                    <div class="fotos-grid">
+                        <img src="W3.jpg" alt="Sala general">
+                    </div>
+                </div>
+
+                <p style="color:green; font-weight:bold; margin-top:20px;"><br>
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; text-decoration:none;">
+                        Cotizar Precio de todo el primer piso
+                    </a>
+                </p>
+            </div>
+
+            <div id="h1" class="detalle-contenido">
+                <h3>Habitación 1 - 1er Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC1-1.jpeg" alt="Habitación 1 primer piso">
+                    <img src="PC1-1-1.jpeg" alt="Habitación 1 primer piso vista 2">
+                </div>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>2 camas</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h2" class="detalle-contenido">
+                <h3>Habitación 2 - 1er Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC1-2.jpeg" alt="Habitación 2 primer piso">
+                    <img src="PC1-2-1.jpeg" alt="Habitación 2 primer piso vista 2">
+                </div>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>2 camas</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h3" class="detalle-contenido">
+                <h3>Habitación 3 - 1er Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC1-3.jpeg" alt="Habitación 3 primer piso">
+                    <img src="PC1-3-1.jpeg" alt="Habitación 3 primer piso vista 2">
+                </div>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>1 cama y 1 camarote</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h4" class="detalle-contenido">
+                <h3>Habitación 4 - 1er Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC1-4.jpeg" alt="Habitación 4 primer piso">
+                    <img src="PC1-4-1.jpeg" alt="Habitación 4 primer piso vista 2">
+                </div>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>1 cama grande</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h5" class="detalle-contenido">
+                <h3>Habitación 1 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-1.jpeg" alt="Habitación 1 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>1 cama</li>
+                        <li>1 Televisor</li>
+                        <li>1 mesa y silla</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h6" class="detalle-contenido">
+                <h3>Habitación 2 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-2.jpeg" alt="Habitación 2 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>1 cama y 1 camarote</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h7" class="detalle-contenido">
+                <h3>Habitación 3 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-3.jpeg" alt="Habitación 3 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>2 camas</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h8" class="detalle-contenido">
+                <h3>Habitación 4 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-4.jpeg" alt="Habitación 4 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>1 cama y 1 camarote</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h9" class="detalle-contenido">
+                <h3>Habitación 5 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-5.jpeg" alt="Habitación 5 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>2 camas</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+            <div id="h10" class="detalle-contenido">
+                <h3>Habitación 6 - 2do Piso</h3>
+                <div class="fotos-grid">
+                    <img src="PC2-6.jpeg" alt="Habitación 6 segundo piso">
+                </div><br>
+                <div style="background:#f4f4f4; padding:20px; border-radius:12px; margin-top:20px; text-align:left;">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Baño con terma</li>
+                        <li>1 toalla</li>
+                        <li>1 papel higiénico</li>
+                        <li>1 jabón</li>
+                        <li>2 camas</li>
+                        <li>Sábanas y cobijas</li>
+                        <li>Mueble para ropa o cosas</li>
+                        <li>Cortinas</li>
+                        <li>Espacio amplio</li>
+                    </ul>
+                </div>
+                <p style="margin-top:15px;">
+                    <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer" style="color:green; font-weight:bold;">
+                        Cotizar Precio de esta habitación
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="conocenos" class="animar">
+        <h2>Conócenos</h2>
+        <div class="contenedor-conocenos">
+            <button class="flecha flecha-izq" onclick="cambiarVideo(-1)" type="button">❮</button>
+            <button class="flecha flecha-der" onclick="cambiarVideo(1)" type="button">❯</button>
+            <div class="slider-videos" id="sliderVideos">
+                <div class="video-slide"><video controls><source src="Conocenos.mp4" type="video/mp4"></video></div>
+                <div class="video-slide"><video controls><source src="V2.mp4" type="video/mp4"></video></div>
+                <div class="video-slide"><video controls><source src="V3.mp4" type="video/mp4"></video></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eventos" class="animar">
+        <h2>Eventos a realizar</h2>
+
+        <div class="menu-botones">
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('cumpleanos', this)">Cumpleaños</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('babyshower', this)">Baby Shower</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('camping-evento', this)">Camping</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('promocion', this)">Promoción</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('anonuevo', this)">Año nuevo</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('pedida', this)">Pedida de mano / Noche de bodas</button>
+            <button type="button" class="btn-interactivo" onclick="mostrarEvento('diadelamujer', this)">Día de la mujer</button>
+        </div>
+
+        <div class="contenedor-dinamico" id="cont-eventos">
+            <div id="cumpleanos" class="detalle-contenido">
+                <h3>Cumpleaños</h3>
+                <div class="fotos-grid">
+                    <img src="CUM1.jpg" alt="Evento 1">
+                    <img src="EV2.jpg" alt="Evento 2">
+                    <img src="EV3.jpg" alt="Evento 3">
+                    <img src="EV5.jpg" alt="Evento 7">
+                </div>
+            </div>
+
+            <div id="babyshower" class="detalle-contenido">
+                <h3>Baby Shower</h3>
+                <div class="fotos-grid">
+                    <img src="EV4.jpg" alt="Evento 4">
+                    <img src="EV12.jpg" alt="Evento 5">
+                    <img src="EV13.jpg" alt="Evento 6">
+                </div>
+            </div>
+
+            <div id="camping-evento" class="detalle-contenido">
+                <h3>Camping</h3>
+                <div class="fotos-grid">
+                    <img src="EV11.jpg" alt="Evento 4">
+                </div>
+            </div>
+
+            <div id="promocion" class="detalle-contenido">
+                <h3>Promoción</h3>
+                <div class="fotos-grid">
+                    <img src="EV8.jpg" alt="Evento 10">
+                    <img src="EV10.jpg" alt="Evento 13">
+                </div>
+            </div>
+
+            <div id="anonuevo" class="detalle-contenido">
+                <h3>Año nuevo</h3>
+                <div class="fotos-grid">
+                   <img src="EV7.jpg" alt="Evento 9">
+                </div>
+            </div>
+
+            <div id="pedida" class="detalle-contenido">
+                <h3>Pedida de mano / Noche de bodas</h3>
+                <div class="fotos-grid">
+                    <img src="MAT1.jpg" alt="Evento 11">
+                    <img src="MAT2.jpg" alt="Evento 12">
+                </div>
+            </div>
+
+            <div id="diadelamujer" class="detalle-contenido">
+                <h3>Día de la mujer</h3>
+                <div class="fotos-grid">
+                    <img src="EV6.jpg" alt="Evento 8">
+                    <img src="EV14.jpg" alt="Evento 14">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="animar">
+        <h2>Ubícanos en Google Maps</h2>
+        <div class="mapa-contenedor">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.123456789!2d-79.6234!3d-5.3678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjInMDUuMCJTIDc5wrAzNycyNC4yIlc!5e0!3m2!1ses!2spe!4v1713480000000!5m2!1ses!2spe"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <p style="margin-top: 15px;">
+            <a href="https://www.google.com/maps/place/Casa+Campo+M%26J/@-5.3847313,-79.6050261,17z/data=!3m1!4b1!4m6!3m5!1s0x904ac737b0f07adf:0x2051ad81eeddeaa6!8m2!3d-5.3847313!4d-79.6050261!16s%2Fg%2F11rx9zbnnc?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color: var(--verde-campo); font-weight: bold;">
+                Ver en Google Maps
+            </a>
+        </p>
+    </section>
+
+    <footer id="contacto">
+        <div class="banner-contacto">
+            <h2>¡Reserva tu estadía hoy! | Contáctanos</h2>
+            <div class="info-contacto">
+                <p>📍 Carretera, Palambla 20431</p>
+                <p>📱 WhatsApp: <a href="https://wa.me/51979081390" target="_blank" rel="noopener noreferrer">979081390</a></p>
+                <p>📧 <a href="mailto:casacampomyj@gmail.com">casacampomyj@gmail.com</a></p>
+                <p>🔵 <a href="https://www.facebook.com/profile.php?id=100076398576167&locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook M&J casa de campo</a></p>
+            </div>
+        </div>
+        <p style="margin-top: 30px;">© 2026 M&J CASA CAMPO</p>
+    </footer>
+
+<script>
+    function ocultarConAnimacion(elemento) {
+        if (!elemento || elemento.style.display === 'none') return;
+
+        elemento.classList.remove('mostrar');
+        elemento.classList.add('ocultar');
+
+        setTimeout(() => {
+            elemento.style.display = 'none';
+            elemento.classList.remove('ocultar');
+        }, 350);
+    }
+
+    function mostrarConAnimacion(elemento) {
+        if (!elemento) return;
+
+        elemento.style.display = 'block';
+        elemento.classList.remove('ocultar');
+        elemento.classList.add('mostrar');
+    }
+
+    function limpiarActivos(botones) {
+        botones.forEach(b => b.classList.remove('active'));
+    }
+
+    function mostrarInfo(seccionId, detalleId, boton) {
+        const contenedor = document.getElementById('cont-' + seccionId);
+        if (!contenedor) return;
+
+        const detalle = document.getElementById(detalleId);
+        if (!detalle) return;
+
+        const yaVisible = detalle.style.display === 'block' && !detalle.classList.contains('ocultar');
+
+        contenedor.querySelectorAll('.detalle-contenido').forEach(d => {
+            if (d !== detalle) ocultarConAnimacion(d);
+        });
+
+        limpiarActivos(boton.parentElement.querySelectorAll('.btn-interactivo'));
+
+        if (yaVisible) {
+            ocultarConAnimacion(detalle);
+            return;
+        }
+
+        mostrarConAnimacion(detalle);
+        boton.classList.add('active');
+    }
+
+    function mostrarPiso(piso, boton) {
+        const menuPiso1 = document.getElementById('menu-piso1');
+        const menuPiso2 = document.getElementById('menu-piso2');
+        const menu = document.getElementById('menu-' + piso);
+
+        if (!menu) return;
+
+        const yaVisible = menu.style.display === 'flex';
+
+        menuPiso1.style.display = 'none';
+        menuPiso2.style.display = 'none';
+
+        document.querySelectorAll('#cont-habitaciones .detalle-contenido').forEach(d => {
+            ocultarConAnimacion(d);
+        });
+
+        limpiarActivos(document.querySelectorAll('#habitaciones > .menu-botones .btn-interactivo'));
+        limpiarActivos(document.querySelectorAll('#menu-piso1 .btn-interactivo, #menu-piso2 .btn-interactivo'));
+
+        if (yaVisible) {
+            return;
+        }
+
+        menu.style.display = 'flex';
+        boton.classList.add('active');
+    }
+
+    function mostrarDetalleHab(habId, boton) {
+        const habitacion = document.getElementById(habId);
+        if (!habitacion) return;
+
+        const yaVisible = habitacion.style.display === 'block' && !habitacion.classList.contains('ocultar');
+
+        document.querySelectorAll('#cont-habitaciones .detalle-contenido').forEach(d => {
+            if (d !== habitacion) ocultarConAnimacion(d);
+        });
+
+        limpiarActivos(boton.parentElement.querySelectorAll('.btn-interactivo'));
+
+        if (yaVisible) {
+            ocultarConAnimacion(habitacion);
+            return;
+        }
+
+        mostrarConAnimacion(habitacion);
+        boton.classList.add('active');
+    }
+
+    function mostrarEvento(eventoId, boton) {
+        const evento = document.getElementById(eventoId);
+        if (!evento) return;
+
+        const yaVisible = evento.style.display === 'block' && !evento.classList.contains('ocultar');
+
+        document.querySelectorAll('#cont-eventos .detalle-contenido').forEach(d => {
+            if (d !== evento) ocultarConAnimacion(d);
+        });
+
+        limpiarActivos(boton.parentElement.querySelectorAll('.btn-interactivo'));
+
+        if (yaVisible) {
+            ocultarConAnimacion(evento);
+            return;
+        }
+
+        mostrarConAnimacion(evento);
+        boton.classList.add('active');
+    }
+
+    let indiceActual = 0;
+    const slider = document.getElementById('sliderVideos');
+    const slides = document.querySelectorAll('.video-slide');
+    const totalVideos = slides.length;
+
+    function actualizarFlechas() {
+        const flechaIzq = document.querySelector('.flecha-izq');
+        const flechaDer = document.querySelector('.flecha-der');
+
+        if (!flechaIzq || !flechaDer) return;
+
+        flechaIzq.style.display = indiceActual === 0 ? 'none' : 'flex';
+        flechaDer.style.display = indiceActual === totalVideos - 1 ? 'none' : 'flex';
+    }
+
+    function cambiarVideo(direccion) {
+        indiceActual += direccion;
+
+        if (indiceActual < 0) indiceActual = 0;
+        if (indiceActual > totalVideos - 1) indiceActual = totalVideos - 1;
+
+        if (slider) {
+            slider.style.transform = `translateX(-${indiceActual * 100}%)`;
+        }
+
+        actualizarFlechas();
+    }
+
+    actualizarFlechas();
+</script>
+</body>
+</html>
